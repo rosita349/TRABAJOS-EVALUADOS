@@ -17,13 +17,23 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
-      <div>
-        <img src="Css/imagenes/logo.png" alt="" class="logo">
-      </div>
+      <a class="navbar-brand" href="index.html">
+        <img src="Css/imagenes/logo.png" alt="Logo" class="logo">
+      </a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNavDropdown" 
+        aria-controls="navbarNavDropdown" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+            <a class="nav-link active" aria-current="page" href="index.html">INICIO</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="nosotros.html">NOSOTROS</a>
@@ -31,18 +41,53 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="productos.html">PRODUCTOS</a>
           </li>
-          </li>
-          
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="Contactos.html">CONTACTOS</a>
           </li>
-          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#carritoModal">
+              <img src="Css/imagenes/cart4.svg" alt="Carrito" class="cart-icon">
+              <span id="cantidadCarrito">0</span> <!-- Contador de productos -->
         </ul>
       </div>
     </div>
   </nav>
-  <div>
-    <img src="" alt="">
+  <!-- Modal del Carrito -->
+  <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table" id="tabla">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- Los productos se agregarán dinámicamente aquí -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>TOTAL</th>
+                    <td colspan="3" id="total">0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="finalizarCompra">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="container-productos">
@@ -51,7 +96,7 @@
       <div class="info-producto">
         <h5>SOFA LINEAL</h5>
         <p>100% Cuero</p>
-        <button class="btn-comprar" data-nombre="Producto 1" data-precio="100">Comprar</button>
+        <button class="btn-comprar" data-nombre="SOFA LINEAL" data-precio="100">Comprar</button>
       </div>
     </div>
   
@@ -60,7 +105,7 @@
       <div class="info-producto">
         <h5>MINI SOFA</h5>
         <p>100% Tela.</p>
-        <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+        <button class="btn-comprar" data-nombre="MINI SOFA" data-precio="150">Comprar</button>
       </div>
     </div>
     <div class="card-producto">
@@ -68,7 +113,7 @@
       <div class="info-producto">
         <h5>Sofa semi capitoneado</h5>
         <p>Ideal en tacto cuero</p>
-        <button class="btn-comprar" data-nombre="Producto 1" data-precio="100">Comprar</button>
+        <button class="btn-comprar" data-nombre="Sofa semi capitoneado" data-precio="100">Comprar</button>
       </div>
     </div>
   
@@ -77,7 +122,7 @@
       <div class="info-producto">
         <h5>Muebles luisxv</h5>
         <p>Ideal en talla clasica.</p>
-        <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+        <button class="btn-comprar" data-nombre="Muebles luisxv" data-precio="150">Comprar</button>
       </div>
     </div>
     <div class="card-producto">
@@ -85,7 +130,7 @@
       <div class="info-producto">
         <h5>Mueble frans chester</h5>
         <p>Tela anti fluidos</p>
-        <button class="btn-comprar" data-nombre="Producto 1" data-precio="100">Comprar</button>
+        <button class="btn-comprar" data-nombre="Mueble frans chester" data-precio="100">Comprar</button>
       </div>
     </div>
   
@@ -94,7 +139,7 @@
       <div class="info-producto">
         <h5>Sofa cama </h5>
         <p>Tela elastica</p>
-        <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+        <button class="btn-comprar" data-nombre="Sofa cama" data-precio="150">Comprar</button>
       </div>
     </div>
     <div class="card-producto">
@@ -102,7 +147,7 @@
       <div class="info-producto">
         <h5>Lampara  de dormitorio</h5>
         <p>ahorra de energia</p>
-        <button class="btn-comprar" data-nombre="Producto 1" data-precio="100">Comprar</button>
+        <button class="btn-comprar" data-nombre="Lampara  de dormitorio" data-precio="100">Comprar</button>
       </div>
     </div>
   
@@ -111,7 +156,7 @@
       <div class="info-producto">
         <h5>Lampara de salón</h5>
         <p>Elegante y ergonomica</p>
-        <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+        <button class="btn-comprar" data-nombre="Lampara de salón" data-precio="150">Comprar</button>
       </div>
     </div>
     <div class="card-producto">
@@ -119,7 +164,7 @@
       <div class="info-producto">
         <h5>Lampara para exterior</h5>
         <p>Focos recargables</p>
-        <button class="btn-comprar" data-nombre="Producto 1" data-precio="100">Comprar</button>
+        <button class="btn-comprar" data-nombre="Lampara para exterior" data-precio="100">Comprar</button>
       </div>
     </div>
   
@@ -128,7 +173,7 @@
       <div class="info-producto">
         <h5>Lampras decorativas</h5>
         <p>Paquete de 24 unidades</p>
-        <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+        <button class="btn-comprar" data-nombre="Lampras decorativas" data-precio="150">Comprar</button>
       </div>
     </div>
     <div class="card-producto">
@@ -136,7 +181,7 @@
       <div class="info-producto">
         <h5>Lampara de sala</h5>
         <p>2 unidades</p>
-        <button class="btn-comprar" data-nombre="Producto 1" data-precio="100">Comprar</button>
+        <button class="btn-comprar" data-nombre="Lampara de sala" data-precio="100">Comprar</button>
       </div>
     </div>
   
@@ -145,7 +190,7 @@
       <div class="info-producto">
         <h5>Comedor para sotea</h5>
         <p>Barnizado en material impermeable.</p>
-        <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+        <button class="btn-comprar" data-nombre="Comedor para sotea" data-precio="150">Comprar</button>
       </div>
     </div>
     <div class="card-producto">
@@ -153,7 +198,7 @@
       <div class="info-producto">
         <h5>Comedor de desayunos</h5>
         <p>Ideal para espacios cortos.</p>
-        <button class="btn-comprar" data-nombre="Producto 1" data-precio="100">Comprar</button>
+        <button class="btn-comprar" data-nombre="Comedor de desayunos" data-precio="100">Comprar</button>
       </div>
     </div>
   
@@ -162,7 +207,7 @@
       <div class="info-producto">
         <h5>Comedor de lux</h5>
         <p>Materiales premium.</p>
-        <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+        <button class="btn-comprar" data-nombre="Comedor de lux" data-precio="150">Comprar</button>
       </div>
     </div>
     <div class="card-producto">
@@ -170,7 +215,7 @@
       <div class="info-producto">
         <h5>Comedor para exteriores</h5>
         <p>Realizado con materiales metalicos.</p>
-        <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+        <button class="btn-comprar" data-nombre="Comedor para exteriores" data-precio="150">Comprar</button>
       </div>
     </div>
       <div class="card-producto">
@@ -178,7 +223,7 @@
         <div class="info-producto">
           <h5>Mini comedor</h5>
           <p>Ideal para espacios modico..</p>
-          <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+          <button class="btn-comprar" data-nombre="Mini comedor" data-precio="150">Comprar</button>
         </div>
       </div>
       <div class="card-producto">
@@ -186,7 +231,7 @@
         <div class="info-producto">
           <h5>Comedor generencial</h5>
           <p>Ideal para reuniones de negocios.</p>
-          <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+          <button class="btn-comprar" data-nombre="Comedor generencial" data-precio="150">Comprar</button>
         </div>
       </div>
       <div class="card-producto">
@@ -194,7 +239,7 @@
         <div class="info-producto">
           <h5>Silla metalica</h5>
           <p>Hecha para extreriores</p>
-          <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+          <button class="btn-comprar" data-nombre="Silla metalica" data-precio="150">Comprar</button>
         </div>
       </div>
       <div class="card-producto">
@@ -202,7 +247,7 @@
         <div class="info-producto">
           <h5>Silla tejida</h5>
           <p>Ofrece una transpiración eficas.</p>
-          <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+          <button class="btn-comprar" data-nombre="Silla tejida" data-precio="150">Comprar</button>
         </div>
       </div>
       <div class="card-producto">
@@ -210,7 +255,7 @@
         <div class="info-producto">
           <h5>Silla de mimbre</h5>
           <p>Ideal para casa de campo</p>
-          <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+          <button class="btn-comprar" data-nombre="Silla de mimbre" data-precio="150">Comprar</button>
         </div>
       </div>
       <div class="card-producto">
@@ -218,7 +263,7 @@
         <div class="info-producto">
           <h5>Silla tapizada</h5>
           <p>Ideal para sala de reuniones.</p>
-          <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+          <button class="btn-comprar" data-nombre="Silla tapizada" data-precio="150">Comprar</button>
         </div>
       </div>
       <div class="card-producto">
@@ -226,7 +271,7 @@
         <div class="info-producto">
           <h5>Silla relax</h5>
           <p>Ideal para estudio de hogar.</p>
-          <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+          <button class="btn-comprar" data-nombre="Silla relax" data-precio="150">Comprar</button>
         </div>
       </div>
       <div class="card-producto">
@@ -234,7 +279,7 @@
         <div class="info-producto">
           <h5>Sillon modular</h5>
           <p>Ideal para sala de espera.</p>
-          <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+          <button class="btn-comprar" data-nombre="Sillon modular" data-precio="150">Comprar</button>
         </div>
       </div>
       <div class="card-producto">
@@ -242,98 +287,79 @@
         <div class="info-producto">
           <h5>Sillon punch</h5>
           <p>Comodo y apto para cualquier sitio.</p>
-          <button class="btn-comprar" data-nombre="Producto 2" data-precio="150">Comprar</button>
+          <button class="btn-comprar" data-nombre="Sillon punch" data-precio="150">Comprar</button>
         </div>
       </div>
   </div>
   
-  <!-- Popup para ajustar cantidad -->
-  <div id="popup-cantidad" class="popup hidden">
-    <div class="popup-content">
-      <h5 id="producto-nombre"></h5>
-      <p>Precio: $<span id="producto-precio"></span></p>
-      <label for="cantidad">Cantidad:</label>
-      <input type="number" id="cantidad" min="1" value="1">
-      <div class="popup-actions">
-        <button id="agregar-carrito" class="btn btn-primary">Agregar al carrito</button>
-        <button id="cerrar-popup" class="btn btn-secondary">Cancelar</button>
+
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="feature">
+        <p>REEMBOLSO DE DINERO</p>
+      </div>
+      <div class="feature">
+        <p>CAMBIO EN TIENDA</p>
+      </div>
+      <div class="feature">
+        <p>PAGO DESPUÉS DEL RECIBO</p>
+      </div>
+      <div class="feature">
+        <p>TRANSPORTISTA GRATUITO</p>
+      </div>
+      <div class="feature">
+        <p>PAGO ASEGURADO AL 100%</p>
       </div>
     </div>
-  </div>
-  
-  <!-- Carrito de compras -->
-  <div id="carrito">
-    <h4>Carrito de compras</h4>
-    <ul id="lista-carrito"></ul>
-    <p>Total: $<span id="total-precio">0</span></p>
-  </div>
+    <div class="footer-bottom">
+      <div class="footer-section">
+        <h3>Categorias</h3>
+        <ul>
+          <li>Muebles de cocina</li>
+          <li>Muebles de sala</li>
+          <li>Muebles de dormitorio</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>INFORMACIÓN</h3>
+        <ul>
+          <li>Promociones especiales</li>
+          <li>Novedades</li>
+          <li>Mejores ventas</li>
+          <li>Nuestras tiendas</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>CONTACTESE CON NOSOTROS</h3>
+        <p>hogardulcehogar1993@gmail.com</p>
+      </div>
+      <div class="footer-section">
+        <h3>SIGUENOS EN NUESTRAS REDES SOCIALES</h3>
+        <ul class="social-icons">
+          <li><a href="https://www.facebook.com/home.php?paipv=0&eav=AfboI5GbX5kkwXM2izA1zWZXp39xOmT7_N5iDWsqYrMQMqtxuVRBIsiPoUS9dtTbKHM&_rdr">
+              <img src="/Css/imagenes/facebook.svg" alt="">
+            </a></li>
+          <li><a href="https://www.instagram.com/pycca/?hl=es">
+              <img src="/Css/imagenes/instagram.svg" alt=""></a></li>
+          <li><a href="https://wa.me/0967176860">
+              <img src="/Css/imagenes/whatsapp.svg" alt="">
+            </a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>FORMAS DE PAGO</h3>
+        <ul>
+          <li>Tranferencia</li>
+          <li>Tarjeta de debito</li>
+          <li>Tarjeta de credito</li>
+          <li>De una</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
-  
-    <footer class="footer">
-      <div class="footer-top">
-        <div class="feature">
-          <p>REEMBOLSO DE DINERO</p>
-        </div>
-        <div class="feature">
-          <p>CAMBIO EN TIENDA</p>
-        </div>
-        <div class="feature">
-          <p>PAGO DESPUÉS DEL RECIBO</p>
-        </div>
-        <div class="feature">
-          <p>TRANSPORTISTA GRATUITO</p>
-        </div>
-        <div class="feature">
-          <p>PAGO ASEGURADO AL 100%</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-section">
-          <h3>Categorias</h3>
-          <ul>
-            <li>Muebles de cocina</li>
-            <li>Muebles de sala</li>
-            <li>Muebles de dormitorio</li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>INFORMACIÓN</h3>
-          <ul>
-            <li>Promociones especiales</li>
-            <li>Novedades</li>
-            <li>Mejores ventas</li>
-            <li>Nuestras tiendas</li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>CONTACTE CON NOSOTROS</h3>
-          <p>hogardulcehogar1993@gmail.com</p>
-        </div>
-        <div class="footer-section">
-          <h3>SIGUENOS EN NUESTRAS REDES SOCIALES</h3>
-          <ul class="social-icons">
-            <li><a href="#">
-                <img src="/Css/imagenes/facebook.svg" alt="">
-              </a></li>
-            <li><a href="#">
-                <img src="/Css/imagenes/instagram.svg" alt=""></a></li>
-            <li><a href="#">
-                <img src="/Css/imagenes/whatsapp.svg" alt="">
-              </a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>FORMAS DE PAGO</h3>
-          <ul>
-            <li>Tranferencia</li>
-            <li>Tarjeta de debito</li>
-            <li>Tarjeta de credito</li>
-            <li>De una</li>
-          </ul>
-        </div>
-      </div>
-    </footer>
- <script src="java/carrito.js"></script>
+ <script src="java/producto.js"></script>
 </body>
 
 </html>
